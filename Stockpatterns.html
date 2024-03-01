@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>LouisMarketVisionary</title>
+  <title>Stock Patterns</title>
   <style>
     body {
       text-align: center;
@@ -65,6 +65,12 @@
       var selectedPage = document.getElementById('dropdown-pages').value;
       showPage(selectedPage);
     }
+
+    // Function to change text based on user input
+    function changeText() {
+      var customText = document.getElementById('customText').value;
+      document.getElementById('demo').innerHTML = customText;
+    }
   </script>
 </head>
 
@@ -84,28 +90,28 @@
     </div>
   </div>
 
-  <!-- Page 1 content -->
-  <div id="page1" class="page">
+  <!-- Page 2 content -->
+  <div id="page3" class="page">
     <div class="centered-content">
-      <h1 style="font-size: 80px;">LouisMarketVisionary</h1>
-      <h3 style="font-size: 20px;">Welcome to my website, my website will used as a tool for explaining and predicting stock market trends.</h3><br />
-    </div>
-  </div>
+      <h1 style="font-size: 80px;">The Rising & Falling Wedge</h1>
+
+    <!-- Button to tell the user what the Double Top & Bottom is -->
+    <body>
+      <h3>What are stock patterns?</h3>
+      <button onclick="document.getElementById('demo').innerHTML='Stock chart patterns are lines and shapes drawn onto price charts in order to help predict forthcoming price actions, such as breakouts and reversals. They are a fundamental technical analysis technique that helps traders use past price actions as a guide for potential future market movements.'">Click me!</button>
+      <p id="demo"></p>
+    </body>
+    </html>
+    
 
   <!-- Images -->
-  <img src="DoubleTop.png" width="400" height="234.35">
-  <img src="DoubleBottom.png" width="400" height="234.35">
   <img src="RisingWedge.png" width="252.12" height="234.75">
   <img src="FallingWedge.png" width="252.12" height="234.75">
+  <img src="RisingFallingWedgeChart.png" width="932" height="550"></a>
 
-  <div style="text-align: center;">
-    <img src="stockchart.png" width="600" height="360">
-  </div>
-  
-
-  <!-- Script to initially show the first page -->
+  <!-- Script to show the second page -->
   <script>
-    showPage('page1');
+    showPage('page3');
   </script>
 </body>
 
