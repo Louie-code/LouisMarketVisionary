@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>The Double Top & Bottom</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: 'Courier New', monospace;
+      background-color: black;
+      color: white;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      text-align: center;
+      font-family: "Times New Roman", Times, serif;
+      background-color: black;
+      color: white;
+    }
+
+    .dropdown-content a {
+      color: white;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: lightcoral;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .disclaimer-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+  </style>
+
+  <script>
+    // Function to show a specific page based on its ID
+    function showPage(pageId) {
+      var pages = document.getElementsByClassName('page');
+      for (var i = 0; i < pages.length; i++) {
+        pages[i].style.display = 'none';
+      }
+      document.getElementById(pageId).style.display = 'block';
+    }
+    // Function triggered when the dropdown selection changes
+    function onDropdownChange() {
+      var selectedPage = document.getElementById('dropdown-pages').value;
+      showPage(selectedPage);
+    }
+
+    // Function to change text based on user input
+    function changeText() {
+      var customText = document.getElementById('customText').value;
+      document.getElementById('demo').innerHTML = customText;
+    }
+  </script>
+</head>
+
+<body>
+  <!-- Disclaimer button -->
+  <button class="disclaimer-button" type="button" onclick="alert('Disclaimer: The stock predictions provided on this website are not guaranteed to be 100% accurate. Users are advised to use the predictions for informational purposes only and at their own risk!')">Disclaimer</button>
+
+  <!-- Dropdown menu -->
+  <div class="dropdown">
+    <button>Menu</button>
+    <div class="dropdown-content">
+      <a href="stockpredictor.html">Home</a>
+      <a href="Stockpatterns.html">Stock Patterns</a>
+      <a href="DoubleTopBottom.html">Double Top and Bottom</a>
+      <a href="RisingFallingWedge.html">Rising and Falling Wedge</a>
+      <a href="Predicting.html">Predictor</a>
+    </div>
+  </div>
+
+  <!-- Page 2 content -->
+  <div id="page2" class="page">
+    <div class="centered-content">
+      <h1 style="font-size: 80px;">The Double Top & Bottom</h1>
+
+    <!-- Button to tell the user what the Double Top & Bottom is -->
+    <body>
+      <h3>What is The Double Top & Bottom?</h3>
+      <button onclick="document.getElementById('demo').innerHTML='The Double Top & Bottom is a stock pattern used by traders to determine the outcome of a stock. A Double Top has an M shape and indicates a downward reversal in trend. A Double Bottom has a W shape and is a signal for an upward price movement. Double top first has a moving up trend, then the price makes two same highs. 2 same highs = Resistance level | Swing low creates the “neckline” for the pattern. This pattern essentially shows that if the price fails to reach a higher high, but repeats the high twice, it predicts a “loss of momentum from the uptrend,” from the buyers in the market. Double bottom first has a moving downtrend, then the price makes two same lows. 2 same lows = Support level | Swing high creates the “neckline” for the pattern. The stock pattern shows that the price fails to reach a lower low, but repeats the same low twice, this predicts a “loss of momentum from the downtrend,” meaning a loss of of momentum from the sellers in the market.'">Click me!</button>
+      <p id="demo"></p>
+    </body>
+    </html>
+    
+
+  <!-- Images -->
+  <img src="DoubleTop.png" width="400" height="234.35">
+  <img src="DoubleBottom.png" width="400" height="234.35">
+  <a href="https://www.youtube.com/watch?v=OdMVGnI6gAs&ab_channel=TheMovingAverage"><img src="DoubleTopBottomNeckline.png" width="779" height="470"></a>
+
+
+  <!-- Script to show the second page -->
+  <script>
+    showPage('page2');
+  </script>
+</body>
+
+</html>

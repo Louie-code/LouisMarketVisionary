@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Predictor</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: 'Courier New', monospace;
+      background-color: black;
+      color: white;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      text-align: center;
+      font-family: "Times New Roman", Times, serif;
+      background-color: black;
+      color: white;
+    }
+
+    .dropdown-content a {
+      color: white;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: lightcoral;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .disclaimer-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+  </style>
+
+  <script>
+    function customAlgorithms(prices) {
+      if (prices[0] > prices[1] && prices[2] > prices[0] && prices[3] < prices[2] && prices[3] > prices[1] && prices[4] > prices[2] && prices[5] < prices[1]) {
+        return 'Sell or Hold';
+      } else if (prices[0] < prices[1] && prices[2] < prices[0] && prices[3] < prices[1] && prices[3] > prices[0] && prices[4] < prices[2] && prices[5] > prices[1]) {
+        return 'Buy or Hold';
+      } else {
+        return 'No pattern detected';
+      }
+    }
+
+    function showPage(pageId) {
+      document.querySelectorAll('.page').forEach(page => page.style.display = 'none');
+      document.getElementById(pageId).style.display = 'block';
+    }
+
+    function onDropdownChange() {
+      showPage(document.getElementById('dropdown-pages').value);
+    }
+
+    function predictAndDisplay() {
+      var prices = Array.from({length: 6}, (_, i) => parseFloat(document.getElementById('input' + (i + 1) * 10).value));
+      document.getElementById('predictionResult').innerHTML = "Recommendation: " + customAlgorithms(prices);
+    }
+  </script>
+</head>
+
+<body>
+  <button class="disclaimer-button" type="button" onclick="alert('Disclaimer: The stock predictions provided on this website are not guaranteed to be 100% accurate. Users are advised to use the predictions for informational purposes only and at their own risk!')">Disclaimer</button>
+
+  <div class="dropdown">
+    <button>Menu</button>
+    <div class="dropdown-content">
+      <a href="stockpredictor.html">Home</a>
+      <a href="Stockpatterns.html">Stock Patterns</a>
+      <a href="DoubleTopBottom.html">Double Top and Bottom</a>
+      <a href="RisingFallingWedge.html">Rising and Falling Wedge</a>
+      <a href="Predicting.html">Predictor</a>
+    </div>
+  </div>
+
+  <h2>Stock Price Predictor</h2>
+
+  <form onsubmit="predictAndDisplay(); return false;">
+    <label for="input10">1st-Week Price:</label><br>
+    <input type="text" id="input10" name="input10" placeholder="Enter price after 1st-Week Price"><br>
+
+    <label for="input20">2nd-Week Price:</label><br>
+    <input type="text" id="input20" name="input20" placeholder="Enter price after 2nd-Week Price"><br>
+
+    <label for="input30">3rd-Week Price:</label><br>
+    <input type="text" id="input30" name="input30" placeholder="Enter price after 3rd-Week Price"><br>
+
+    <label for="input40">4th-Week Price:</label><br>
+    <input type="text" id="input40" name="input40" placeholder="Enter price after 4th-Week Price"><br>
+
+    <label for="input50">5th-Week Price:</label><br>
+    <input type="text" id="input50" name="input50" placeholder="Enter price after 5th-Week Price"><br>
+
+    <label for="input60">6th-Week Price:</label><br>
+    <input type="text" id="input60" name="input60" placeholder="Enter price after 6th-Week Price"><br>
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <p id="predictionResult">Once you click the "Submit" button, you will be told either to; Buy, Short, Sell, or Hold. If the pattern used by the stock predictor is not detected, it will respond with no pattern detected. (The only pattern that can be spotted by this predictor is a Rising & Falling Wedge with downtrend.)</p>
+</body>
+
+</html>
